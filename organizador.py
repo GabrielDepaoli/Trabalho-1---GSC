@@ -23,7 +23,18 @@ while True:
             for i, t in enumerate(tarefas, start=1):
                 print(f"{i}. {t}")
     elif opcao == "3":
-        print("Função de remover tarefa ainda não implementada.")
+        if len(tarefas) == 0:
+            print("Não há tarefas para remover.")
+        else:
+            print("\nTarefas:")
+            for i, t in enumerate(tarefas, start=1):
+                print(f"{i}. {t}")
+            indice = int(input("Digite o número da tarefa que deseja remover: "))
+            if 1 <= indice <= len(tarefas):
+                removida = tarefas.pop(indice - 1)
+                print(f"Tarefa '{removida}' removida com sucesso!")
+            else:
+                print("Número inválido.")
     elif opcao == "4":
         print("Finalizando...")
         break
